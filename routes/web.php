@@ -15,5 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', 'StocksController@index');
-Route::get('/next', 'NextController@index');
-Route::post('/next', 'NextController@store');
+Route::post('/', 'NextController@store');
+
+Route::get('/list', 'ListController@index');
+Route::delete('/{id}', 'DestroyController@destroy');
