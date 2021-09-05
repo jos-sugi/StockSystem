@@ -6,16 +6,32 @@
 @section('content')
 <html>
     <body>
-        <form action="{{action('NextController@store')}}" method="POST">
-            @csrf
-            <input type="text" name="item" value="" />
-            <input type="text" name="number" value="" />
-            <input type="text" name="money" value="" />
-        　　<input type="submit" name="submit" value="登録" />
-        </form>
-        <form action="{{action('ListController@index')}}" method="GET">
-            <input type="submit" value="一覧">
-        </form>
+    <form action="{{action('NextController@store')}}" method="POST" class="form-horizontal">
+    @csrf
+	<div class="form-group">
+        <label class="col-sm-2 offset-2 control-label">商品名：</label>
+		<div class="col-sm-8 offset-2">
+            <input type="text" class="form-control" name="item" placeholder="商品名を入力してください">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-2 offset-2 control-label" for="InputPassword">個数</label>
+		<div class="col-sm-8 offset-2">
+			<input type="number" class="form-control" name="number" placeholder="個数を入してください"/>
+		</div>
+	</div>
+    <div class="form-group">
+		<label class="col-sm-2 offset-2 control-label" for="InputPassword">値段</label>
+		<div class="col-sm-8 offset-2">
+            <input type="number" class="form-control" name="money" placeholder="値段を入してください"/>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-3" style="float: right;">
+            <input type="submit" name="submit" value="登録" class="btn btn-primary btn-wide"/>
+		</div>
+	</div>
+    </form>
     </body>
 </html>
 @endsection

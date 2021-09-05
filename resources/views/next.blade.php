@@ -5,35 +5,33 @@
 @section('content')
 <html>
     <body>
+    <div class="col-md-12">
     <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>名前</th>
-            <th>個数</th>
-            <th>金額</th>
-            <th>削除</th>
-        </tr>
-        </thead>
-        </table>
-        @foreach ($data as $datalist)
-        <table class="table table-striped">
-        <thead> 
+        <thead>
             <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>個数</th>
+                <th>金額</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+            @foreach ($data as $datalist)
                 <td>{{ $datalist->id }}</td>
                 <td>{{ $datalist->item }}</td>
                 <td>{{ $datalist->number }}</td>
                 <td>{{ $datalist->money }}</td>
-                <form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                <td><form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
-                    <td><a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a></td>
-                </form>
-
+                    <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a></form></td>
             </tr>
-        </thead>
-        </table>
-        @endforeach
+            @endforeach
+        </tbody>
+    </table>
+    </div>
 
     </body>
     <form action="/">

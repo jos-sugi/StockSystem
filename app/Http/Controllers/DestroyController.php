@@ -12,9 +12,6 @@ class DestroyController extends Controller
         $stock = Stock::findOrFail($id);
         $stock->delete();
 
-        return redirect('/');
-        #greetingsテーブルのレコードを全件取得
-        // $data = Stock::all();
-        // return view('all')->with('message', '削除しました。')->with('data',$data);
+        return redirect('/list');
     }
 }

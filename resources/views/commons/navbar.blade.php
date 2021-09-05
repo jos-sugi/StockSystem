@@ -10,8 +10,13 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#">管理者</a></li>
-                    <li class="nav-item"><a href="#">管理者２</a></li>
+                    
+                    <li class="nav-item"><form action="/">
+                        <button type="submit" class="btn btn-white">
+                        <i class="fa fa-plus"></i>登録</form></li>
+                    <li class="nav-item"><form action="/list">
+                        <button type="submit" class="btn btn-white">
+                        <i class="fa fa-plus"></i>一覧</form></li>
                 </ul>
         </div>
     </nav>
