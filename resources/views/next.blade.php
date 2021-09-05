@@ -26,20 +26,16 @@
                 <td><form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
-                    <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a></form></td>
+                    <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);" ><i class="fa fa-trash"></i>削除</a></form></td>
             </tr>
             @endforeach
         </tbody>
     </table>
     </div>
-
     </body>
-    <form action="/">
-        <button type="submit" class="btn btn-default">
-        <i class="fa fa-plus"></i>登録
-    </form>
-
 </html>
+
+
 <script>
 function deletePost(e) {
   'use strict';
