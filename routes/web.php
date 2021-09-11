@@ -14,8 +14,17 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::post('login', 'Auth\LoginController@login')->name('login.post');
+Route::get('logout', 'Auth\LoginController@logout');
+
 Route::get('/', 'StocksController@index');
 Route::post('/', 'NextController@store');
 
 Route::get('/list', 'ListController@index');
 Route::delete('/{id}', 'DestroyController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
