@@ -13,8 +13,8 @@
                 <th>名前</th>
                 <th>個数</th>
                 <th>金額</th>
-                <th>削除</th>
-                <th>状態</th>
+                <th>ステータス</th>
+                <th>その他</th>
             </tr>
         </thead>
         <tbody> 
@@ -24,10 +24,6 @@
                 <td>{{ $datalist->item }}</td>
                 <td>{{ $datalist->number }}</td>
                 <td>{{ $datalist->money }}</td>
-                <td><form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
-                    {{ csrf_field() }}
-                    {{ method_field('delete') }}
-                    <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);" ><i class="fa fa-trash"></i>削除</a></form></td>
                 <td>@if ($datalist->status === 0) 
                         {{ "発注確認" }}
                     @elseif ($datalist->status === 1)
@@ -36,6 +32,20 @@
                         {{ "発注済み" }}
                     @elseif ($datalist->status === 3)
                         {{ "発注受け取り済み" }}    
+                    @endif
+                </td>
+                <td><form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                    {{ csrf_field() }}
+                    {{ method_field('delete') }}
+                    <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);" ><i class="fa fa-trash"></i>削除</a>
+                    </form>
+
+                    @if (Auth::user()->usertype === 1 and $datalist->status === 0)
+                    <form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>発注</a>
+                    </form>
                     @endif
                 </td>
             </tr>

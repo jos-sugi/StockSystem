@@ -23,8 +23,10 @@ Route::get('/', 'StocksController@index');
 Route::post('/', 'NextController@store');
 
 Route::get('/list', 'ListController@index');
-Route::delete('/{id}', 'DestroyController@destroy');
+Route::delete('/list{id}', 'DestroyController@destroy');
+Route::get('/list{id}', 'UpdateController@update');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

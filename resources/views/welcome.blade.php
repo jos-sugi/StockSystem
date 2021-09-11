@@ -6,6 +6,7 @@
 @section('content')
 <html>
     <body>
+	@if (Auth::check())
     <form action="{{action('NextController@store')}}" method="POST" class="form-horizontal">
     @csrf
 	<div class="form-group">
@@ -33,5 +34,10 @@
 	</div>
     </form>
     </body>
+	@else
+	<form action="login">
+		<button type="submit">ログイン</button>
+	</form>
+	@endif
 </html>
 @endsection

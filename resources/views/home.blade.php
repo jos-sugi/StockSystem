@@ -8,9 +8,14 @@
                 {{ session('status') }}
             </div>
         @endif
-        @foreach ($data as $datalist)
-            ようこそ{{ $datalist->name }}
-        @endforeach
+            ようこそ{{Auth::user()->name}}
+            @if (Auth::user()->usertype === 1)
+            {{"権限：管理者"}}
+            @elseif (Auth::user()->usertype === 0)
+            {{"権限：社員"}}
+            @elseif (Auth::user()->usertype === 2)
+            {{"権限：受注者"}}
+            @endif
     </div>
 </div>
 @endsection
