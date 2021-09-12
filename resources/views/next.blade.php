@@ -44,17 +44,17 @@
                     @if (Auth::user()->usertype === 1 and $datalist->status === 0)
                     <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                         @method('PUT')
-                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>確認</a>
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-outline-info btn-sm"><i class="fa fa-check"></i>確認</a>
                     </form></td>
                     @elseif (Auth::user()->usertype === 2 and $datalist->status === 1)
                     <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                         @method('PUT')
-                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>発注する</a>
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-outline-info btn-sm"><i class="fa fa-check"></i>チェック</a>
                     </form></td>
                     @elseif (Auth::user()->usertype === 1 and $datalist->status === 2)
                     <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                         @method('PUT')
-                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>受け取り</a>
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-outline-info btn-sm"><i class="fa fa-check"></i>受け取り</a>
                     </form></td>
                     @else
                     <td></td>
