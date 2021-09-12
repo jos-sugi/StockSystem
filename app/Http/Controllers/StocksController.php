@@ -22,7 +22,7 @@ class StocksController extends Controller
         $head = ['id','商品名','個数','金額','ステータス'];
 
         // 書き込み用ファイルを開く
-        $f = fopen('test.csv', 'w');
+        $f = fopen('stock.csv', 'w');
         if ($f) {
             // カラムの書き込み
             mb_convert_variables('SJIS', 'UTF-8', $head);
@@ -61,8 +61,8 @@ class StocksController extends Controller
 
         // HTTPヘッダ
         header("Content-Type: application/octet-stream");
-        header('Content-Length: '.filesize('test.csv'));
-        header('Content-Disposition: attachment; filename=test.csv');
-        readfile('test.csv');
+        header('Content-Length: '.filesize('stock.csv'));
+        header('Content-Disposition: attachment; filename=stock.csv');
+        readfile('stock.csv');
     }
 }
