@@ -60,7 +60,8 @@
 権限範囲：<br>
 ①の可能な操作<br>
 「在庫一覧画面」の商品ステータスを発注状態から発注済みへ変更<br>
-![スクリーンショット 2021-09-12 17 12 11](https://user-images.githubusercontent.com/73978536/132979102-a49527ca-22e9-4394-815e-9bc09322d2b7.jpg)
+![スクリーンショット 2021-09-12 17 12 11](https://user-images.githubusercontent.com/73978536/132979102-a49527ca-22e9-4394-815e-9bc09322d2b7.jpg)<br>
+
 #　CSV出力
 ![スクリーンショット 2021-09-12 17 16 50](https://user-images.githubusercontent.com/73978536/132979281-f8184cf1-459a-4589-b486-f2f7f8f5f1b5.jpg)
 
