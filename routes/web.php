@@ -21,6 +21,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/', 'StocksController@index');
 Route::post('/', 'NextController@store');
+Route::get('/download', 'StocksController@makeCSV');
 
 Route::get('/list', 'ListController@index');
 Route::delete('/list{id}', 'DestroyController@destroy');

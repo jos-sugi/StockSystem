@@ -5,6 +5,7 @@
 @section('content')
 <html>
     <body>
+    @if (Auth::check())
     <div class="col-md-12">
     <table class="table table-striped">
         <thead>
@@ -63,7 +64,10 @@
         </tbody>
     </table>
     </div>
+    <form action="{{ action('StocksController@makeCSV')}}" method="get">
+    <button href ="/download" type="submit">CSV出力</button></form>
     </body>
+    @endif
 </html>
 
 
