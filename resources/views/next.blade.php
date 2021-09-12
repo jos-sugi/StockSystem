@@ -65,7 +65,7 @@
     </table>
     </div>
     <form action="{{ action('StocksController@makeCSV')}}" method="get">
-    <button href ="/download" type="submit">CSV出力</button></form>
+    <a href ="/download" type="submit" class="btn btn-secondary btn-sm"><i class="fa fa-file-csv"></i>CSV出力</a></form>
     </body>
     @endif
 </html>
