@@ -35,9 +35,14 @@
     </form>
     </body>
 	@else
-	<form action="login">
-		<button type="submit">ログイン</button>
-	</form>
+    <div class="center jumbotron">
+        <div class="text-center">
+            <h1>Welcome!在庫管理システム</h1>
+			<hr class="my-4">
+			<p><a class="btn btn-info btn-lg" href="/login" role="button">Login now</a></p>
+    
+        </div>
+    </div>
 	@endif
 </html>
 @endsection
