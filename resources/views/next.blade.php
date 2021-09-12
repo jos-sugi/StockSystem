@@ -14,6 +14,7 @@
                 <th>個数</th>
                 <th>金額</th>
                 <th>ステータス</th>
+                <th>削除</th>
                 <th>その他</th>
             </tr>
         </thead>
@@ -23,31 +24,40 @@
                 <td>{{ $datalist->id }}</td>
                 <td>{{ $datalist->item }}</td>
                 <td>{{ $datalist->number }}</td>
-                <td>{{ $datalist->money }}</td>
+                <td>{{ number_format($datalist->money) }}円</td>
                 <td>@if ($datalist->status === 0) 
-                        {{ "発注確認" }}
+                        <span style="color: black;">発注確認</span>
                     @elseif ($datalist->status === 1)
-                        {{ "発注状態" }}
+                        <span style="color: blue;">発注状態</span>
                     @elseif ($datalist->status === 2)
-                        {{ "発注済み" }}
+                        <span style="color: red;">発注済み</span>
                     @elseif ($datalist->status === 3)
-                        {{ "発注受け取り済み" }}    
+                        <span style="color: green;">発注受け取り済み</span>
                     @endif
                 </td>
                 <td><form action="{{ action('DestroyController@destroy', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                     <a href="#" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);" ><i class="fa fa-trash"></i>削除</a>
-                    </form>
-
+                    </form></td>
                     @if (Auth::user()->usertype === 1 and $datalist->status === 0)
-                    <form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                    <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
                         @method('PUT')
-                        @csrf
-                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>発注</a>
-                    </form>
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>確認</a>
+                    </form></td>
+                    @elseif (Auth::user()->usertype === 2 and $datalist->status === 1)
+                    <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                        @method('PUT')
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>発注する</a>
+                    </form></td>
+                    @elseif (Auth::user()->usertype === 1 and $datalist->status === 2)
+                    <td><form action="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" method="post">
+                        @method('PUT')
+                        <a href="{{ action('UpdateController@update', $datalist->id) }}" id="form_{{ $datalist->id }}" data-id="{{ $datalist->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>受け取り</a>
+                    </form></td>
+                    @else
+                    <td></td>
                     @endif
-                </td>
             </tr>
             @endforeach
         </tbody>
