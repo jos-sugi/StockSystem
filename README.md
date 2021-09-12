@@ -1,78 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+要件・ページ構成
+【画面】
+・Top画面
+・ログイン画面
+・ホーム画面
+・登録画面
+・在庫一覧画面
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+【画面詳細】
+・Top画面
+　画面が表示され、「Login」ボタン押下でログイン画面へ遷移
 
-## About Laravel
+・ログイン画面
+　メールアドレスとパスワードでログイン
+--------------------------------------------
+　①在庫発注社員（email:bbb@b.b/pw:bbbbbbbb）
+　②在庫発注管理者（email:aaa@a.a/pw:aaaaaaaa）
+　③在庫受注者（email:ccc@c.c/pw:cccccccc）
+--------------------------------------------
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+・ホーム画面
+　ユーザー名とユーザー権限を表示
+　ナビゲーションバーの「登録」「一覧」ボタンを押下することで、「在庫登録画面」「在庫一覧画面」へ遷移
+　ログアウトボタンを押下することでログアウトし、Top画面へ遷移
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+・在庫登録画面
+　「商品名」「個数」「値段」を入力後「登録」ボタン押下で登録
+	商品名は入力必須、個数・値段は数値入力必須
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+・在庫一覧画面
+　データベースに登録している、商品名・個数・値段・ステータスをそれぞれ表示
+　それぞれに「削除」ボタンを設置し、ボタン押下により物理削除
+　ログインの権限に応じて、商品ステータスを変更するためのボタン設置（権限詳細については下に記述）
+------------------------------------------------------------------------------------------
+　※権限と権限範囲
+　　①在庫発注社員
+	　権限：一般
+	　権限範囲：「登録画面」から商品を登録
+	　　　　　　「在庫一覧画面」の商品ステータスを発注確認へ（初期状態）
+	　　　　　　「在庫一覧画面」の商品を削除
 
-## Learning Laravel
+　　②在庫発注管理者
+	　権限：管理者
+	　権限範囲：①の可能な操作
+	　　　　　　「在庫一覧画面」の商品ステータスを発注確認から発注状態へ変更
+			　「在庫一覧画面」の商品ステータスを発注済みから発注受け取り済みへ変更
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+　　③在庫受注者
+	　権限：管理者
+	　権限範囲：①の可能な操作
+	　　　　　　「在庫一覧画面」の商品ステータスを発注状態から発注済みへ変更
+------------------------------------------------------------------------------------------
