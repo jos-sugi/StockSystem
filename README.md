@@ -65,4 +65,5 @@
 #　CSV出力
 ![スクリーンショット 2021-09-12 17 16 50](https://user-images.githubusercontent.com/73978536/132979281-f8184cf1-459a-4589-b486-f2f7f8f5f1b5.jpg)
 
-「在庫一覧画面」左下、「CSV出力」ボタンを押下でテキストファイル出力
+「在庫一覧画面」左下、「CSV出力」ボタンを押下でテキストファイル出力<br>
+https://github.com/jos-sugi/StockSystem/blob/main/public/stock.csv
