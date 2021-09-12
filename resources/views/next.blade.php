@@ -21,8 +21,8 @@
         </thead>
         <tbody> 
             <tr>
-            @foreach ($data as $datalist)
-                <td>{{ $datalist->id }}</td>
+            @foreach ($data as $key=>$datalist)
+                <td>{{ $key+1 }}</td>
                 <td>{{ $datalist->item }}</td>
                 <td>{{ $datalist->number }}</td>
                 <td>{{ number_format($datalist->money) }}円</td>
